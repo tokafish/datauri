@@ -25,7 +25,15 @@ class Api extends Stream {
 
     return this;
   }
-
+  
+  getBase64() {
+    if (!this.content) {
+      throw new Error('Create a data-uri config using the method encodeSync');
+    }
+    
+    return this.base64  
+  }
+  
   createMetadata(fileName) {
     this.fileName = fileName;
     this.mimetype = mimer(fileName);
